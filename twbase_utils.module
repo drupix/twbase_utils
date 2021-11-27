@@ -1,0 +1,91 @@
+<?php
+
+/**
+ * @file
+ * TWBase Theme utilities module.
+ */
+
+/**
+ * Utility function that return the current theme name.
+ *
+ * @return string
+ *   The current theme name.
+ */
+function _twbase_utils_get_default_theme() {
+  return \Drupal::service('theme_handler')->getDefault();
+}
+
+/**
+ * Implements hook_node_editor_js_settings_alter().
+ */
+function twbase_utils_editor_js_settings_alter(array &$settings) {
+  if(_twbase_utils_get_default_theme() !== 'twbase') {
+    return;
+  }
+
+  foreach (array_keys($settings['editor']['formats']) as $text_format_id) {
+    if ($settings['editor']['formats'][$text_format_id]['editor'] === 'ckeditor') {
+      // Add the necessary class to the WYSIWYG editor, so that the it matches the front end.
+      // Necessary to make tailwindcss-typography works in admin/ckeditor
+      // See: https://www.drupal.org/project/drupal/issues/2674412
+      $settings['editor']['formats'][$text_format_id]['editorSettings']['bodyClass'] = "tw-p-4 tw-prose";
+
+      // kint($settings['editor']['formats'][$text_format_id]['editorSettings']);
+      // $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'] = [];
+      $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'][] = [
+        'name' => "Lead",
+        'element' => "p",
+        'attributes' => [
+          'class' => "lead"
+        ]
+      ];
+      $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'][] = [
+        'name' => "Code",
+        'element' => "code",
+      ];
+      $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'][] = [
+        'name' => "Text primary",
+        'element' => "span",
+        'attributes' => [
+          'class' => "text-primary"
+        ]
+      ];
+      $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'][] = [
+        'name' => "Text secondary",
+        'element' => "span",
+        'attributes' => [
+          'class' => "text-secondary"
+        ]
+      ];
+      $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'][] = [
+        'name' => "Text success",
+        'element' => "span",
+        'attributes' => [
+          'class' => "text-success"
+        ]
+      ];
+      $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'][] = [
+        'name' => "Text danger",
+        'element' => "span",
+        'attributes' => [
+          'class' => "text-danger"
+        ]
+      ];
+      $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'][] = [
+        'name' => "Text info",
+        'element' => "span",
+        'attributes' => [
+          'class' => "text-info"
+        ]
+      ];
+      $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'][] = [
+        'name' => "Dropcap",
+        'element' => "span",
+        'attributes' => [
+          'class' => "dropcap"
+        ]
+      ];
+
+    }
+  }
+}
