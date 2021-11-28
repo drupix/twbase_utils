@@ -1,0 +1,12 @@
+# Schema for TWBase Theme Utilities module configuration.
+
+twbase_utils.settings_showcase:
+  type: config_object
+  label: 'Showcase settings'
+  mapping:
+    title:
+      type: label
+      label: 'Title'
+    body:
+      label: 'Body'
+      type: text_format

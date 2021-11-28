@@ -1,0 +1,23 @@
+twbase_utils.config:
+  path: 'admin/config/twbase'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'TWBase Utilities'
+  requirements:
+    _permission: 'access twbase_utils settings'
+
+twbase_utils.settings:
+  path: 'admin/config/twbase/settings'
+  defaults:
+    _form: '\Drupal\twbase_utils\Form\SettingsForm'
+    _title: 'TWBase Utilities Settings'
+  requirements:
+    _permission: 'access twbase_utils settings'
+
+twbase_utils.settings.showcase:
+  path: 'admin/config/twbase/showcase'
+  defaults:
+    _form: '\Drupal\twbase_utils\Form\ShowcaseBlockSettingsForm'
+    _title: 'TWBase Utilities Showcase'
+  requirements:
+    _permission: 'access twbase_utils settings'

@@ -1,0 +1,4 @@
+title: 'Welcome to TWBase Theme Utilities'
+body:
+  value: "<p>Yeah nice !!! Congratulations, you have installed the TWBase Theme Utilities module. To modify the showcase, <a class=\"text-success\" href=\"/user\">log in</a> with your username and password and edit this content from the admin UI in the <a class=\"text-success\" href=\"/admin/config/twbase/showcase\">TWBase Utilities settings</a>.</p>\r\n\r\n<p class=\"tw-py-4\">Happy building 🥳♥️🎊</p>"
+  format: full_html

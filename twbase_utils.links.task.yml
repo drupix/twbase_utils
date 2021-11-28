@@ -1,0 +1,9 @@
+twbase_utils.settings:
+  route_name: twbase_utils.settings
+  title: 'TWBase Utilities Settings'
+  base_route: twbase_utils.settings
+twbase_utils.settings.showcase:
+  route_name: twbase_utils.settings.showcase
+  title: 'Showcase Settings'
+  base_route: twbase_utils.settings.showcase
+  # weight: 5

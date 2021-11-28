@@ -9,12 +9,13 @@
 
 This module is intended for use with [TWBase Theme](https://github.com/drupix/twbase).
 
-Actually it does two things:
+The additional features provided by this module are:
 
-1. it add `prose` (`tw-prose`) wrapper class to the editor `body` that allows tailwindcss-typography to works correctly while editing a node in the admin section
-2. it add extra styles for custom colors (`text-primary`, `text-secondary`, `text-success`, `text-danger`, `text-info`) and `dropcap` for a Dropcap (big letter at the beginning of a sentence/word) that you can then define in the theme `src/components/base-text-css` and another extra class `lead` to fully match with tailwindcss-typography
+* a `prose` (`tw-prose`) wrapper class is added to the editor `body` that allows tailwindcss-typography to works correctly while editing a node in the admin section
+* **extra styles** are added for custom colors (`text-primary`, `text-secondary`, `text-success`, `text-danger`, `text-info`) and `dropcap` for a Dropcap (big letter at the beginning of a sentence/word) that you can then define in the theme `src/components/base-text-css` and another extra class `p.lead` to fully match with tailwindcss-typography
+* an admin interface is provided to edit the showcase content
 
-**To have extra classes working you must add the "Styles" button to your CKEditor configuration at `/admin/config/content/formats/manage/full_html`**
+**To have extra styles working you must add the "Styles" button to your CKEditor configuration at `/admin/config/content/formats/manage/full_html`**
 
 ## INSTALLATION
 

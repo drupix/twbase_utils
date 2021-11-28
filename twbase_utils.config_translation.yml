@@ -1,0 +1,11 @@
+twbase_utils.settings:
+  title: 'TWBase Utilities Settings'
+  base_route_name: twbase_utils.settings
+  names:
+    - twbase_utils.settings
+
+twbase_utils.settings.showcase:
+  title: 'TWBase Utilities Showcase settings'
+  base_route_name: twbase_utils.settings.showcase
+  names:
+    - twbase_utils.settings_showcase

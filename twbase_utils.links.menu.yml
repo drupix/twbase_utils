@@ -1,0 +1,17 @@
+twbase_utils.config:
+  title: 'TWBase Utilities'
+  parent: system.admin_config
+  description: 'TWBase Utilities Configuration'
+  route_name: twbase_utils.config
+twbase_utils.settings:
+  title: 'Settings'
+  parent: twbase_utils.config
+  description: 'TWBase Utilities Settings'
+  route_name: twbase_utils.settings
+  weight: 0
+twbase_utils.settings.showcase:
+  title: 'Showcase'
+  parent: twbase_utils.config
+  description: 'TWBase Utilities Showcase Settings'
+  route_name: twbase_utils.settings.showcase
+  # weight: 5
