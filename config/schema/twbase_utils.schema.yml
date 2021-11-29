@@ -10,3 +10,29 @@ twbase_utils.settings_showcase:
     body:
       label: 'Body'
       type: text_format
+
+node.type.*.third_party.twbase_utils:
+  type: mapping
+  label: 'TWBase Theme Utilities content type settings'
+  mapping:
+    # expand_fieldset:
+    #   type: string
+    #   label: 'Conditions under which to expand the date input fieldset or vertical tab'
+    # fields_display_mode:
+    #   type: string
+    #   label: 'The way the scheduling fields are displayed in the node form'
+    showcase_enabled:
+      type: boolean
+      label: 'Provide the default showcase'
+    showcase_display_title:
+      type: boolean
+      label: 'Display the node title'
+    showcase_display_submitted:
+      type: boolean
+      label: 'Display the node author and the publication date'
+    showcase_display_image:
+      type: boolean
+      label: 'Display the image field (field_image) if it exists in the content type'
+    showcase_deco:
+      type: boolean
+      label: 'Display a swirl decoration'
