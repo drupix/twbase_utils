@@ -1,0 +1,7 @@
+vertical-tabs:
+  js:
+    js/twbase_utils_vertical_tabs.js: {}
+  dependencies:
+      - core/jquery
+      - core/drupal
+      - core/jquery.once

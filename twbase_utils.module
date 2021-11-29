@@ -5,6 +5,9 @@
  * TWBase Theme utilities module.
  */
 
+
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Utility function that return the current theme name.
  *
@@ -88,4 +91,13 @@ function twbase_utils_editor_js_settings_alter(array &$settings) {
 
     }
   }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for node_type_form().
+ */
+function twbase_utils_form_node_type_form_alter(array &$form, FormStateInterface $form_state) {
+  // Load the real code only when needed.
+  module_load_include('inc', 'twbase_utils', 'twbase_utils.admin');
+  _twbase_utils_form_node_type_form_alter($form, $form_state);
 }
