@@ -75,6 +75,13 @@ function twbase_utils_editor_js_settings_alter(array &$settings) {
         ]
       ];
       $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'][] = [
+        'name' => "Text warning",
+        'element' => "span",
+        'attributes' => [
+          'class' => "text-warning"
+        ]
+      ];
+      $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'][] = [
         'name' => "Text info",
         'element' => "span",
         'attributes' => [
