@@ -1,6 +1,6 @@
 title: 'Welcome to TWBase Theme Utilities'
 body:
-  value: "<p>Yeah nice !!! Congratulations, you have installed the TWBase Theme Utilities module. To modify the showcase, <span class=\"text-success\"><a href=\"/user\">log in</a></span> with your username and password and edit this content from the admin UI in the <span class=\"text-success\"><a href=\"/admin/config/twbase/showcase\">TWBase Utilities settings</a></span>.</p>\r\n\r\n<p>Happy building 🥳♥️🎊</p>"
+  value: "<p>Yeah nice !!! Congratulations, you have installed the TWBase Theme Utilities module. To modify the showcase, <span class=\"text-success\"><a href=\"/user\">log in</a></span> with your username and password and edit this content from the admin UI in the <span class=\"text-success\"><a href=\"/admin/config/twbase/showcase\">TWBase Utilities settings</a></span>.</p>\r\n\r\n<p>Happy building 🥳❤️🎊</p>"
   format: full_html
 button:
   text: 'Read the doc'
