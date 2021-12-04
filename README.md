@@ -12,7 +12,7 @@ This module is intended for use with [TWBase Theme](https://github.com/drupix/tw
 The additional features provided by this module are:
 
 * a `prose` (`tw-prose`) wrapper class is added to the editor `body` that allows tailwindcss-typography to works correctly while editing a node in the admin section
-* **extra styles** are added for custom colors (`text-primary`, `text-secondary`, `text-success`, `text-danger`, `text-info`) and `dropcap` for a Dropcap (big letter at the beginning of a sentence/word) that you can then define in the theme `src/components/base-text-css` and another extra class `p.lead` to fully match with tailwindcss-typography
+* **extra styles** are added to a better match with tailwindcss-typography like `p.lead` and `code` and custom colors (`text-primary`, `text-secondary`, `text-success`, `text-danger`, `text-warning`, `text-info`) and `dropcap` for a Dropcap (big letter at the beginning of a sentence/word) have been also added
 * an admin interface is provided to edit the showcase content
 * and last but not least: it allows you to define showcase options per content type 🥳
 
