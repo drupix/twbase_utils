@@ -81,7 +81,7 @@ function _twbase_utils_form_node_type_form_alter(&$form, FormStateInterface $for
     '#type' => 'checkbox',
     '#title' => t('Display author and date information'),
     '#default_value' => $type->getThirdPartySetting('twbase_utils', 'showcase_display_submitted', $config->get('default_showcase_display_submitted')),
-    '#description' => t('Display the node author and the publication date in the showcase.') . '<br>' .
+    '#description' => t('Display the node author and the publication date in the showcase.') . ' ' . t('This will automatically hide it from the node default display.') . '<br>' .
 											'<strong>' .
                       t('The <a href="#" class="open-tab-display">Display settings</a> will takes precedence over this option.' .
                       '</strong>'),
@@ -99,7 +99,7 @@ function _twbase_utils_form_node_type_form_alter(&$form, FormStateInterface $for
 		'#type' => 'checkbox',
 		'#title'         => t('Swirl decoration'),
 		'#default_value' => $type->getThirdPartySetting('twbase_utils', 'showcase_deco', $config->get('default_showcase_deco')),
-		'#description' => t('If checked a nice swirl is added under the showcase region on <strong>all pages (except the frontpage)</strong>.'),
+		'#description' => t('If checked a nice swirl is added under the showcase region.'),
 	];
 
   // $form['#validate'][] = 'twbase_utils_form_node_type_form_validate';

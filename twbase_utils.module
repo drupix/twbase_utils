@@ -89,6 +89,55 @@ function twbase_utils_editor_js_settings_alter(array &$settings) {
         ]
       ];
       $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'][] = [
+        'name' => "Button",
+        'element' => "a",
+        'attributes' => [
+          'class' => "button"
+        ]
+      ];
+      $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'][] = [
+        'name' => "Button primary",
+        'element' => "a",
+        'attributes' => [
+          'class' => "button button--primary"
+        ]
+      ];
+      $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'][] = [
+        'name' => "Button secondary",
+        'element' => "a",
+        'attributes' => [
+          'class' => "button button--secondary"
+        ]
+      ];
+      $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'][] = [
+        'name' => "Button success",
+        'element' => "a",
+        'attributes' => [
+          'class' => "button button--success"
+        ]
+      ];
+      $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'][] = [
+        'name' => "Button danger",
+        'element' => "a",
+        'attributes' => [
+          'class' => "button button--danger"
+        ]
+      ];
+      $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'][] = [
+        'name' => "Button warning",
+        'element' => "a",
+        'attributes' => [
+          'class' => "button button--warning"
+        ]
+      ];
+      $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'][] = [
+        'name' => "Button info",
+        'element' => "a",
+        'attributes' => [
+          'class' => "button button--info"
+        ]
+      ];
+      $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'][] = [
         'name' => "Dropcap",
         'element' => "span",
         'attributes' => [
