@@ -3,6 +3,7 @@ type: module
 description: Utilities module to use with TWBase Theme.
 package: Tailwind CSS
 configure: twbase_utils.config
-core_version_requirement: ^8 || ^9
+# core_version_requirement: ^8 || ^9
+core_version_requirement: ^9
 dependencies:
   - drupal:ckeditor

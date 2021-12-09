@@ -1,0 +1,10 @@
+{
+  "name": "drupix/twbase_utils",
+  "type": "drupal-custom-module",
+  "description": "Utilities module to use with TWBase Theme.",
+  "homepage": "https://github.com/drupix/twbase_utils",
+  "license": "GPL-2.0+",
+  "require": {
+    "drupal/core": "^9.0"
+  }
+}
