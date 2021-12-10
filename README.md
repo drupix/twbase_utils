@@ -1,6 +1,6 @@
 # TWBase Theme Utilities
 
-[![drupal](https://img.shields.io/badge/drupal-^8.9%20||%20^9-blue.svg?style=flat-square&logo=drupal)](https://drupal.org/)
+[![drupal](https://img.shields.io/badge/drupal-^9-blue.svg?style=flat-square&logo=drupal)](https://drupal.org/)
 [![LICENSE](https://img.shields.io/github/license/drupix/twbase_utils?style=flat-square)](https://raw.githubusercontent.com/drupix/twbase_utils/master/LICENSE.txt)
 
 **:warning: WARNING: TWBase Theme Utilities is under development and not yet ready for production 🐞**
