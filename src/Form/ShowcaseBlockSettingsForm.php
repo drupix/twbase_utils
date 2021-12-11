@@ -36,7 +36,7 @@ class ShowcaseBlockSettingsForm extends ConfigFormBase {
 
     $form['frontpage_options'] = [
       '#type' => 'fieldset',
-      '#title' => t('Frontpage showcase content'),
+      '#title' => $this->t('Frontpage showcase content'),
       '#collapsible' => TRUE,
       '#collapsed' => FALSE,
     ];
@@ -59,7 +59,7 @@ class ShowcaseBlockSettingsForm extends ConfigFormBase {
     //
     $form['frontpage_options']['button_options'] = [
       '#type' => 'fieldset',
-      '#title' => t('Button link options'),
+      '#title' => $this->t('Button link options'),
       '#collapsible' => TRUE,
       '#collapsed' => FALSE,
     ];
@@ -130,7 +130,7 @@ class ShowcaseBlockSettingsForm extends ConfigFormBase {
       /** @var \Drupal\Core\Entity\Entity $node */
       if(is_numeric($nid) && ($node = $entityStorage->load($nid))) {
         if(!$node->isPublished()) {
-          $form_state->setErrorByName('button_link', 'The node "' . $node->label() . '" is not published, the link will not work.');
+          $form_state->setErrorByName('button_link', $this->t('The node "@label" is not published, the link will not work.', ['@label' => $node->label()]));
           return;
         }
       }
@@ -141,7 +141,7 @@ class ShowcaseBlockSettingsForm extends ConfigFormBase {
       $first_char = substr($link, 0, 1);
       //if ($url_scheme === 'internal' && !in_array($link, ['/', '?', '#'], TRUE) ) {
       if ($url_scheme === 'internal' && !in_array($first_char, ['/', '?', '#'], TRUE) ) {
-        $form_state->setErrorByName('button_link', t('Manually entered paths should start with one of the following characters: / ? #'));
+        $form_state->setErrorByName('button_link', $this->t('Manually entered paths should start with one of the following characters: / ? #'));
         return;
       }
 
@@ -177,7 +177,6 @@ class ShowcaseBlockSettingsForm extends ConfigFormBase {
   		->set('body.value', trim($form_state->getValue('body')['value']))
   		->set('body.format', trim($form_state->getValue('body')['format']))
       ->set('button.text', trim($form_state->getValue('button_text')))
-      // ->set('button.link', trim($form_state->getValue('button_link')))
       ->set('button.link', $button_link)
       ->set('button.target', $form_state->getValue('button_target'))
   		->save();
