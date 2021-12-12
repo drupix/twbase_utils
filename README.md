@@ -9,6 +9,8 @@
 
 This module is intended for use with [TWBase Theme](https://github.com/drupix/twbase).
 
+## Features
+
 The additional features provided by this module are:
 
 * a `prose` (`tw-prose`) wrapper class is added to the editor `body` that allows tailwindcss-typography to works correctly while editing a node in the admin section
@@ -18,12 +20,12 @@ The additional features provided by this module are:
 
 **To have extra styles working you must add the "Styles" button to your CKEditor configuration at `/admin/config/content/formats/manage/full_html`**
 
-## INSTALLATION
+## Installation
 
 * Install as you would normally install a contributed Drupal module. Visit:
   <https://www.drupal.org/node/1897420> for further information.
 
-## MAINTAINERS
+## Maintainers
 
 Current maintainers:
 
