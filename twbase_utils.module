@@ -82,13 +82,6 @@ function twbase_utils_editor_js_settings_alter(array &$settings) {
         ]
       ];
       $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'][] = [
-        'name' => "Text info",
-        'element' => "span",
-        'attributes' => [
-          'class' => "text-info"
-        ]
-      ];
-      $settings['editor']['formats'][$text_format_id]['editorSettings']['stylesSet'][] = [
         'name' => "Button",
         'element' => "a",
         'attributes' => [
