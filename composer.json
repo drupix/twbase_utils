@@ -5,6 +5,6 @@
   "homepage": "https://github.com/drupix/twbase_utils",
   "license": "GPL-2.0+",
   "require": {
-    "drupal/core": "^9.0"
+    "drupal/core": "^9.4 || ^10"
   }
 }
