@@ -115,6 +115,22 @@ class ShowcaseBlockSettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('button.target'),
     ];
 
+    // Showcase image form field
+    $form['frontpage_options']['showcase_image'] = [
+      '#type'                 => 'managed_file',
+      '#upload_location'      => 'public://tw-base-theme-showcase',
+      '#multiple'             => FALSE,
+      '#description'          => t('Allowed extensions: gif png jpg jpeg'),
+      '#default_value'        => $config->get('showcase_image'),
+      '#upload_validators'    => [
+        'file_validate_is_image'      => array(),
+        'file_validate_extensions'    => array('gif png jpg jpeg'),
+        'file_validate_size'          => array(25600000)
+      ],
+      '#title'                => t('Frontpage Showcase Image')
+      ];
+    
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -171,6 +187,12 @@ class ShowcaseBlockSettingsForm extends ConfigFormBase {
     else {
       $button_link = trim($form_state->getValue('button_link'));
     }
+    //Making the uploaded file as permanant.
+    $file_data = $form_state->getValue(['frontpage_options' => 'showcase_image']);
+    $file = \Drupal\file\Entity\File::load($file_data[0]);
+    $file_name = $file->getFilename();
+    $file->setPermanent();
+    $file->save();
 
 		$this->config('twbase_utils.settings_showcase')
   		->set('title', trim($form_state->getValue('title')))
@@ -179,6 +201,7 @@ class ShowcaseBlockSettingsForm extends ConfigFormBase {
       ->set('button.text', trim($form_state->getValue('button_text')))
       ->set('button.link', $button_link)
       ->set('button.target', $form_state->getValue('button_target'))
+      ->set('showcase_image', $form_state->getValue(['frontpage_options' => 'showcase_image']) )
   		->save();
 
     parent::submitForm($form, $form_state);
