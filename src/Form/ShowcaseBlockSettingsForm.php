@@ -4,6 +4,8 @@ namespace Drupal\twbase_utils\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Component\Utility\Bytes;
+use Drupal\Component\Utility\Environment;
 use Drupal\Core\Entity\Element\EntityAutocomplete;
 use Drupal\Component\Utility\UrlHelper;
 
@@ -116,20 +118,26 @@ class ShowcaseBlockSettingsForm extends ConfigFormBase {
     ];
 
     // Showcase image form field
+    // Cap the upload size according to the PHP limit.
+    $default_max_size = format_size(Environment::getUploadMaxSize());
+    $max_filesize = Bytes::toNumber(Environment::getUploadMaxSize());
+
+    $showcase_image_fid = $config->get('showcase_image.fid');
+
     $form['frontpage_options']['showcase_image'] = [
       '#type'                 => 'managed_file',
       '#upload_location'      => 'public://tw-base-theme-showcase',
       '#multiple'             => FALSE,
-      '#description'          => t('Allowed extensions: gif png jpg jpeg'),
-      '#default_value'        => $config->get('showcase_image'),
+      '#description'          => $this->t('Allowed extensions: gif png jpg jpeg') . '<br>' .
+                                 $this->t('File size will be limited by the PHP maximum upload size of @size.', ['@size' => $default_max_size]),
+      '#default_value'        => $showcase_image_fid,
       '#upload_validators'    => [
-        'file_validate_is_image'      => array(),
-        'file_validate_extensions'    => array('gif png jpg jpeg'),
-        'file_validate_size'          => array(25600000)
+        'file_validate_is_image'   => [],
+        'file_validate_extensions' => ['gif png jpg jpeg'],
+        'file_validate_size'       => [$max_filesize]
       ],
-      '#title'                => t('Frontpage Showcase Image')
-      ];
-    
+      '#title'                => $this->t('Frontpage Showcase Image')
+    ];
 
     return parent::buildForm($form, $form_state);
   }
@@ -187,22 +195,30 @@ class ShowcaseBlockSettingsForm extends ConfigFormBase {
     else {
       $button_link = trim($form_state->getValue('button_link'));
     }
-    //Making the uploaded file as permanant.
-    $file_data = $form_state->getValue(['frontpage_options' => 'showcase_image']);
-    $file = \Drupal\file\Entity\File::load($file_data[0]);
-    $file_name = $file->getFilename();
-    $file->setPermanent();
-    $file->save();
 
-		$this->config('twbase_utils.settings_showcase')
-  		->set('title', trim($form_state->getValue('title')))
-  		->set('body.value', trim($form_state->getValue('body')['value']))
-  		->set('body.format', trim($form_state->getValue('body')['format']))
+    // Get the previously uploaded file.
+    $showcase_image_fid = $this->config('twbase_utils.settings_showcase')->get('showcase_image.fid');
+
+    // Making the uploaded file as permanant.
+    $file_data = $form_state->getValue(['frontpage_options' => 'showcase_image']);
+    if (!empty($file_data && $file_data !== $showcase_image_fid)) {
+      /** @var \Drupal\file\Entity\File $file */
+      $file = \Drupal\file\Entity\File::load($file_data[0]);
+      $file->setPermanent();
+      $file->save();
+      // Add to file usage calculation.
+      \Drupal::service('file.usage')->add($file, 'twbase_utils', 'file', $file->id());
+    }
+
+    $this->config('twbase_utils.settings_showcase')
+      ->set('title', trim($form_state->getValue('title')))
+      ->set('body.value', trim($form_state->getValue('body')['value']))
+      ->set('body.format', trim($form_state->getValue('body')['format']))
       ->set('button.text', trim($form_state->getValue('button_text')))
       ->set('button.link', $button_link)
       ->set('button.target', $form_state->getValue('button_target'))
-      ->set('showcase_image', $form_state->getValue(['frontpage_options' => 'showcase_image']) )
-  		->save();
+      ->set('showcase_image.fid', $file_data)
+      ->save();
 
     parent::submitForm($form, $form_state);
   }
