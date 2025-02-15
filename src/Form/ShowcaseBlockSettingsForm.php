@@ -119,7 +119,9 @@ class ShowcaseBlockSettingsForm extends ConfigFormBase {
 
     // Showcase image form field
     // Cap the upload size according to the PHP limit.
-    $default_max_size = format_size(Environment::getUploadMaxSize());
+    // $default_max_size = format_size(Environment::getUploadMaxSize());
+    $size = Environment::getUploadMaxSize();
+    $default_max_size = \Drupal\Core\StringTranslation\ByteSizeMarkup::create($size);
     $max_filesize = Bytes::toNumber(Environment::getUploadMaxSize());
 
     $showcase_image_fid = $config->get('showcase_image.fid');
